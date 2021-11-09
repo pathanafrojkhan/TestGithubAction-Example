@@ -1,0 +1,21 @@
+name: run-blazemeter-test-actions-workflow
+env:
+  name: "john doe"
+  mobileno: "7744551122"
+  age: 20
+  
+on: push
+jobs:
+  run-existing-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+      - name: TestBlazeAction
+        uses: pathanafrojkhan/TestAction@v1.0.0
+        id: run-test
+        with:
+          name: ${{env.name}}
+          mobileno: ${{env.mobileno}}
+          age: ${{env.age}}
+          
